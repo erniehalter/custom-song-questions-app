@@ -208,6 +208,13 @@ export default function Form() {
         ))}
       </div>
 
+      {/* Intro Message */}
+      <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6 mb-8">
+        <p className="text-gray-800 leading-relaxed">
+          Here's where I get to ask you all about the custom song we are going to create. <strong>Please be as detailed with your answers as possible</strong> as they will make the best and most personal songs. Give me more than I'll need (street names, what you were drinking, what song that was on the radio, etc). <strong>Describe things using images (and sounds) when you can.</strong> Imagine we are making a short movie and you need to describe the scene and the characters so I can re-create it.
+        </p>
+      </div>
+
       {/* Page 1: Contact Information */}
       {currentPage === 1 && (
         <div className="space-y-6">
@@ -432,18 +439,39 @@ export default function Form() {
           </div>
 
           <div>
-            <label htmlFor="productionDate" className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-4">
               Scheduled Production Date?
             </label>
-            <input
-              type="text"
-              id="productionDate"
-              name="productionDate"
-              value={formData.productionDate}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors"
-              placeholder="Is our production date scheduled? If so please enter it here."
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="productionDatePicker" className="block text-xs font-medium text-gray-600 mb-2">
+                  Date Picker
+                </label>
+                <input
+                  type="date"
+                  id="productionDatePicker"
+                  value={formData.productionDate}
+                  onChange={(e) => handleChange({
+                    target: { name: 'productionDate', value: e.target.value }
+                  } as ChangeEvent<HTMLInputElement>)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <label htmlFor="productionDateText" className="block text-xs font-medium text-gray-600 mb-2">
+                  Or write it out
+                </label>
+                <textarea
+                  id="productionDateText"
+                  name="productionDate"
+                  value={formData.productionDate}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-colors resize-none"
+                  placeholder="e.g., 'Summer 2025' or 'Q4 2025'"
+                  rows={2}
+                />
+              </div>
+            </div>
           </div>
         </div>
       )}
