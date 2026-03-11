@@ -38,17 +38,6 @@ const guestEmailTemplate = (firstName: string) => `
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       overflow: hidden;
     }
-    .header {
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    .header h1 {
-      margin: 0;
-      font-size: 1.875rem;
-      font-weight: 700;
-    }
     .content {
       padding: 2rem;
     }
@@ -56,13 +45,6 @@ const guestEmailTemplate = (firstName: string) => `
       font-size: 1.25rem;
       margin-bottom: 1.5rem;
       color: #111827;
-    }
-    .footer-text {
-      color: #6b7280;
-      font-size: 0.875rem;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #e5e7eb;
     }
     .signature {
       color: #111827;
@@ -72,26 +54,14 @@ const guestEmailTemplate = (firstName: string) => `
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <h1>Custom Song Questionnaire Received</h1>
-    </div>
     <div class="content">
       <div class="greeting">Hi ${firstName},</div>
 
-      <p>Thank you for completing the Custom Song Questionnaire! I've received all of your answers and will start working on creating your custom song right away.</p>
-
-      <p>I'll be reviewing your responses to understand the song subject, your relationship, their musical preferences, and all the special details you've shared. This information will help me craft a personalized song that truly captures what you wanted to express.</p>
-
-      <p>I'll get back to you shortly with updates on the production timeline and next steps.</p>
+      <p>Thank you for completing the Custom Song Questionnaire!</p>
 
       <div class="signature">
-        <p>Best regards,<br>
-        <strong>Ernie Halter</strong><br>
-        <em>Musician & Performer</em></p>
-      </div>
-
-      <div class="footer-text">
-        <p>If you need to provide any additional information or have questions, feel free to reply to this email or contact me directly.</p>
+        <p>Cheers,<br>
+        <strong>E</strong></p>
       </div>
     </div>
   </div>
