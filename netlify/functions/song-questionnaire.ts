@@ -309,7 +309,17 @@ export const handler = async (event: any) => {
 
     const smtpUrl = process.env.SMTP_URL;
     if (smtpUrl) {
-      const transporter = nodemailer.createTransport(smtpUrl);
+      // Parse SMTP URL to handle URL-encoded passwords correctly
+      const url = new URL(smtpUrl);
+      const transporter = nodemailer.createTransport({
+        host: url.hostname,
+        port: parseInt(url.port),
+        secure: url.protocol === 'smtps:',
+        auth: {
+          user: decodeURIComponent(url.username),
+          pass: decodeURIComponent(url.password)
+        }
+      });
 
       // Send confirmation email to the guest
       await transporter.sendMail({
